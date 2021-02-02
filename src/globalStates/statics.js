@@ -1,6 +1,7 @@
 export const colors = {
     linkHover: 'hsl(217, 71%,  53%)',
     background: '#fcfcfc',
+    background_dark: '#212121',
     primary: '#ffc107',
     white: '#ffffff',
     dark: '#000000',

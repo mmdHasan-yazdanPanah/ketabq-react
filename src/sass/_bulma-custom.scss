@@ -9,7 +9,7 @@ $white-bis: #fcfcfc;
 $rtl: true;
 $black: #000000;
 $black-bis: hsl(0, 0%, 11%); /* #1c1c1c */
-$black-ter: hsl(0, 0%, 13%); /* #212121 */
+$black-ter: /* hsl(0, 0%, 13%) */ #212121;
 $family-sans-serif: BlinkMacSystemFont, 'Roboto', 'Oxygen', 'Ubuntu',
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Helvetica',
     'Arial', -apple-system, 'Segoe UI', sans-serif;

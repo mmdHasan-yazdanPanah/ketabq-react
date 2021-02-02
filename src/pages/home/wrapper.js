@@ -19,6 +19,7 @@ import Nav from '../home/nav';
 import useSWR from 'swr';
 import BuyChangeDirection from './shop/buyCD';
 import NoMatch from './noMatch';
+import { colors } from '../../globalStates/statics';
 
 const CatagoriesPage = lazy(() => import('./catagories/catagories'));
 const GeneralCatagoriesPage = lazy(() => import('./catagories/generalCat'));
@@ -163,6 +164,7 @@ const LazyLoad = () => {
 const PrimaryPages = () => {
     const [theme] = useGlobalState('theme');
     const [token] = useGlobalState('token');
+    // eslint-disable-next-line no-unused-vars
     const [animationRest, setAnimationRest] = useState(true);
 
     useEffect(() => {
@@ -172,6 +174,14 @@ const PrimaryPages = () => {
     useEffect(() => {
         document.documentElement.style.overflowY = 'hidden';
     }, []);
+
+    useEffect(() => {
+        if (theme === 'light') {
+            document.body.style.background = colors['background'];
+        } else {
+            document.body.style.background = colors['background_dark'];
+        }
+    }, [theme]);
 
     const location = useLocation();
     const transition = useTransition(
