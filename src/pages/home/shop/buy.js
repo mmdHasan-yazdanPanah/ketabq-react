@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Switch from 'react-switch';
 import Axios from 'axios';
 import { store } from 'react-notifications-component';
-import { useHistory, useLocation, useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { CircleSpinner, ClapSpinner } from 'react-spinners-kit';
 
 import useGlobalState from '../../../globalStates/globalStates';
@@ -28,7 +28,6 @@ const BuyPage = () => {
 
     const { bookId } = useParams();
     const history = useHistory();
-    const location = useLocation();
     const [hash, setHash] = useGlobalState('hash');
     const [token, setToken] = useGlobalState('token');
     const [loading, setLoading] = useState(true);
@@ -236,8 +235,8 @@ const BuyPage = () => {
                 });
             }
 
-            throw err;
             setLoading(false);
+            throw err;
         }
     };
 
@@ -391,33 +390,45 @@ const BuyPage = () => {
                                 <span className="has-text-weight-semibold">
                                     {checked ? 'تومان' : 'دلار'}
                                 </span>
+                                {(checked && pageProps.priceToman === 0) ||
+                                (!checked && pageProps.priceDollar === 0) ? (
+                                    <span className="has-text-weight-semibold has-text-primary">
+                                        {' (رایگان)'}
+                                    </span>
+                                ) : null}
                             </div>
                         </div>
-                        <div className="columns is-mobile is-centered is-gapless is-vcentered pt-3 mb-5">
-                            <div className="column is-narrow">
-                                <Button
-                                    onClick={pageProps.buyFromMoneyClickHandler}
-                                    className="buypage_button"
-                                    size="small"
-                                    wide={true}
-                                    weight="has-text-weight-normal">
-                                    پرداخت مستقیم
-                                    {buyMoneyLoading ? (
-                                        <div
-                                            style={{
-                                                position: 'absolute',
-                                                top: '50%',
-                                                transform: 'translateY(-50%)',
-                                                left: 'calc(100% + 6px)',
-                                            }}>
-                                            <CircleSpinner
-                                                size={18}
-                                                color={colors['primary']}
-                                            />
-                                        </div>
-                                    ) : null}
-                                </Button>
-                            </div>
+                        <div className="columns is-mobile is-centered is-gapless is-vcentered pt-4 mb-5">
+                            {(checked && pageProps.priceToman !== 0) ||
+                            (!checked && pageProps.priceDollar !== 0) ? (
+                                <div className="column is-narrow">
+                                    <Button
+                                        onClick={
+                                            pageProps.buyFromMoneyClickHandler
+                                        }
+                                        className="buypage_button"
+                                        size="small"
+                                        wide={true}
+                                        weight="has-text-weight-normal">
+                                        پرداخت مستقیم
+                                        {buyMoneyLoading ? (
+                                            <div
+                                                style={{
+                                                    position: 'absolute',
+                                                    top: '50%',
+                                                    transform:
+                                                        'translateY(-50%)',
+                                                    left: 'calc(100% + 6px)',
+                                                }}>
+                                                <CircleSpinner
+                                                    size={18}
+                                                    color={colors['primary']}
+                                                />
+                                            </div>
+                                        ) : null}
+                                    </Button>
+                                </div>
+                            ) : null}
                             <div className="column is-narrow mr-2">
                                 <Button
                                     style={{ position: 'relative' }}
@@ -428,7 +439,10 @@ const BuyPage = () => {
                                     size="small"
                                     wide={true}
                                     weight="has-text-weight-normal">
-                                    پرداخت از کیف پول
+                                    {(checked && pageProps.priceToman !== 0) ||
+                                    (!checked && pageProps.priceDollar !== 0)
+                                        ? 'پرداخت از کیف پول'
+                                        : 'افزودن به کتابخانه'}
                                     {buyCreditLoading ? (
                                         <div
                                             style={{

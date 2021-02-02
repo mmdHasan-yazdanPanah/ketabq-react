@@ -19,6 +19,7 @@ const ItemPageSpecifications = ({ items }) => {
                         value={item.value}
                         link={item.link}
                         className={index > 0 ? 'mt-4 pt-1' : ''}
+                        highlight={item.highlight}
                     />
                 </animated.div>
             )}

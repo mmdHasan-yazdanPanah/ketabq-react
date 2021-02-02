@@ -470,34 +470,44 @@ const BuyPage = () => {
                                 <span className="has-text-weight-semibold">
                                     {checked ? 'تومان' : 'دلار'}
                                 </span>
+                                {(checked && pack.price_toman === 0) ||
+                                (!checked && pack.price_doller === 0) ? (
+                                    <span className="has-text-weight-semibold has-text-primary">
+                                        {' (رایگان)'}
+                                    </span>
+                                ) : null}
                             </div>
                         </div>
                         <div className="columns is-mobile is-centered is-gapless is-vcentered pt-3 mb-5">
-                            <div className="column is-narrow">
-                                <Button
-                                    style={{ position: 'relative' }}
-                                    onClick={buyFromMoneyClickHandler}
-                                    className="buypage_button"
-                                    size="small"
-                                    wide={true}
-                                    weight="has-text-weight-normal">
-                                    پرداخت مستقیم
-                                    {buyMoneyLoading ? (
-                                        <div
-                                            style={{
-                                                position: 'absolute',
-                                                top: '50%',
-                                                transform: 'translateY(-50%)',
-                                                left: 'calc(100% + 6px)',
-                                            }}>
-                                            <CircleSpinner
-                                                size={18}
-                                                color={colors['primary']}
-                                            />
-                                        </div>
-                                    ) : null}
-                                </Button>
-                            </div>
+                            {(checked && pack.price_toman !== 0) ||
+                            (!checked && pack.price_doller !== 0) ? (
+                                <div className="column is-narrow">
+                                    <Button
+                                        style={{ position: 'relative' }}
+                                        onClick={buyFromMoneyClickHandler}
+                                        className="buypage_button"
+                                        size="small"
+                                        wide={true}
+                                        weight="has-text-weight-normal">
+                                        پرداخت مستقیم
+                                        {buyMoneyLoading ? (
+                                            <div
+                                                style={{
+                                                    position: 'absolute',
+                                                    top: '50%',
+                                                    transform:
+                                                        'translateY(-50%)',
+                                                    left: 'calc(100% + 6px)',
+                                                }}>
+                                                <CircleSpinner
+                                                    size={18}
+                                                    color={colors['primary']}
+                                                />
+                                            </div>
+                                        ) : null}
+                                    </Button>
+                                </div>
+                            ) : null}
                             <div className="column is-narrow mr-2">
                                 <Button
                                     style={{ position: 'relative' }}
@@ -506,7 +516,10 @@ const BuyPage = () => {
                                     size="small"
                                     wide={true}
                                     weight="has-text-weight-normal">
-                                    پرداخت از کیف پول
+                                    {(checked && pack.price_toman !== 0) ||
+                                    (!checked && pack.price_doller !== 0)
+                                        ? 'پرداخت از کیف پول'
+                                        : 'افزودن به کتابخانه'}
                                     {buyCreditLoading ? (
                                         <div
                                             style={{

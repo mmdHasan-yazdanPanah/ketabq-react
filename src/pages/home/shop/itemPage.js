@@ -208,25 +208,33 @@ const ItemPage = () => {
                         value: `${data.time} دقیقه`,
                     });
 
-                    if (data.discount) {
-                        specificationItems.push({
-                            property: 'قیمت قبل از تخفیف',
-                            value: `${data.price_toman.toLocaleString()} تومان`,
-                        });
-                        specificationItems.push({
-                            property: 'تخفیف',
-                            value: `${data.price_toman_discount.toLocaleString()} تومان`,
-                        });
-                        specificationItems.push({
-                            property: 'قیمت نهایی',
-                            value: `${(
-                                data.price_toman - data.price_toman_discount
-                            ).toLocaleString()} تومان`,
-                        });
+                    if (data.price_toman !== 0) {
+                        if (data.discount) {
+                            specificationItems.push({
+                                property: 'قیمت قبل از تخفیف',
+                                value: `${data.price_toman.toLocaleString()} تومان`,
+                            });
+                            specificationItems.push({
+                                property: 'تخفیف',
+                                value: `${data.price_toman_discount.toLocaleString()} تومان`,
+                            });
+                            specificationItems.push({
+                                property: 'قیمت نهایی',
+                                value: `${(
+                                    data.price_toman - data.price_toman_discount
+                                ).toLocaleString()} تومان`,
+                            });
+                        } else {
+                            specificationItems.push({
+                                property: 'قیمت',
+                                value: `${data.price_toman.toLocaleString()} تومان`,
+                            });
+                        }
                     } else {
                         specificationItems.push({
                             property: 'قیمت',
-                            value: `${data.price_toman.toLocaleString()} تومان`,
+                            value: 'رایگان',
+                            highlight: true,
                         });
                     }
 
@@ -668,25 +676,33 @@ const ItemPage = () => {
                         value: `${data.time} دقیقه`,
                     });
 
-                    if (data.discount) {
-                        specificationItems.push({
-                            property: 'قیمت قبل از تخفیف',
-                            value: `${data.price_toman.toLocaleString()} تومان`,
-                        });
-                        specificationItems.push({
-                            property: 'تخفیف',
-                            value: `${data.price_toman_discount.toLocaleString()} تومان`,
-                        });
-                        specificationItems.push({
-                            property: 'قیمت نهایی',
-                            value: `${(
-                                data.price_toman - data.price_toman_discount
-                            ).toLocaleString()} تومان`,
-                        });
+                    if (data.price_toman !== 0) {
+                        if (data.discount) {
+                            specificationItems.push({
+                                property: 'قیمت قبل از تخفیف',
+                                value: `${data.price_toman.toLocaleString()} تومان`,
+                            });
+                            specificationItems.push({
+                                property: 'تخفیف',
+                                value: `${data.price_toman_discount.toLocaleString()} تومان`,
+                            });
+                            specificationItems.push({
+                                property: 'قیمت نهایی',
+                                value: `${(
+                                    data.price_toman - data.price_toman_discount
+                                ).toLocaleString()} تومان`,
+                            });
+                        } else {
+                            specificationItems.push({
+                                property: 'قیمت',
+                                value: `${data.price_toman.toLocaleString()} تومان`,
+                            });
+                        }
                     } else {
                         specificationItems.push({
                             property: 'قیمت',
-                            value: `${data.price_toman.toLocaleString()} تومان`,
+                            value: 'رایگان',
+                            highlight: true,
                         });
                     }
 

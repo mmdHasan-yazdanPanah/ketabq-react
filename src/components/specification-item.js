@@ -5,7 +5,14 @@ import useGlobalState from '../globalStates/globalStates';
 
 import { ReactComponent as NextIcon } from '../images/icons/next-single.svg';
 
-const SpecificationItem = ({ property, value, link, className, ...rest }) => {
+const SpecificationItem = ({
+    property,
+    value,
+    link,
+    highlight = false,
+    className,
+    ...rest
+}) => {
     const [theme] = useGlobalState('theme');
 
     return (
@@ -13,13 +20,11 @@ const SpecificationItem = ({ property, value, link, className, ...rest }) => {
             className={`specification-item has-text-weight-semibold columns is-gapless is-mobile ${
                 className ? className : ''
             }`}
-            {...rest}
-        >
+            {...rest}>
             <div
                 className={`column is-3 is-size-8 is-size-8--responsive-tablet-up ${
                     theme === 'light' ? 'has-text-grey' : 'has-text-grey-light'
-                }`}
-            >
+                }`}>
                 <div className="specification-item_property is-overflow-ellipse">
                     {property}
                 </div>
@@ -32,17 +37,20 @@ const SpecificationItem = ({ property, value, link, className, ...rest }) => {
                             <Link
                                 to={link ? link : '#'}
                                 style={{ justifyContent: 'flex-start' }}
-                                className="level is-mobile clickable-info--svg-left"
-                            >
+                                className="level is-mobile clickable-info--svg-left">
                                 <span>{value}</span>
                                 <NextIcon className="icon-size--1" />
                             </Link>
                         ) : (
                             <span
                                 style={{ justifyContent: 'flex-start' }}
-                                className="level is-mobile"
-                            >
-                                <span>{value}</span>
+                                className="level is-mobile">
+                                <span
+                                    className={
+                                        highlight ? 'has-text-primary' : ''
+                                    }>
+                                    {value}
+                                </span>
                             </span>
                         )}
                     </div>
