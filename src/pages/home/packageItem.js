@@ -115,9 +115,10 @@ const PackageItem = () => {
                         </div>
                         {items.length > 0 ? (
                             <div
+                                className="mb-5"
                                 style={{
                                     position: 'sticky',
-                                    bottom: '10px',
+                                    bottom: '100px',
                                 }}>
                                 <div className="level is-mobile mb-2">
                                     <div className="level-item">
