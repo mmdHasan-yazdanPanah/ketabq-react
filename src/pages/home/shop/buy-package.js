@@ -294,8 +294,31 @@ const BuyPage = () => {
             });
             const data = res.data;
             setBuyMoneyLoading(false);
-            localStorage.removeItem(`package-${pack.id}-ref`);
-            window.location.href = data.link;
+            if (data.link) {
+                window.location.href = data.link;
+                localStorage.removeItem(`package-${pack.id}-ref`);
+            } else {
+                store.addNotification({
+                    container: 'bottom-right',
+                    animationIn: ['animate__animated', 'animate__flipInX'],
+                    animationOut: ['animate__animated', 'animate__fadeOut'],
+                    type: 'danger',
+                    dismiss: {
+                        duration: 5000,
+                        pauseOnHover: true,
+                    },
+                    title: 'ناموفق',
+                    message: (
+                        <div>
+                            <div>
+                                خطایی برای سرور های ما رخ داده، چندی بعد مراجعه
+                                فرمایید
+                            </div>
+                            <div>در صورت رفع نشدن آن، ما را مطلع سازید</div>
+                        </div>
+                    ),
+                });
+            }
         } catch (err) {
             if (err?.request?.status === 404) {
                 history.push('/404');

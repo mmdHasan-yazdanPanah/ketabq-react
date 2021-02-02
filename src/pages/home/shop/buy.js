@@ -182,8 +182,42 @@ const BuyPage = () => {
 
                             const data = res.data;
                             setBuyMoneyLoading(false);
-                            window.location.href = data.link;
-                            localStorage.removeItem(`book-${dataBook.id}-ref`);
+                            if (data.link) {
+                                window.location.href = data.link;
+                                localStorage.removeItem(
+                                    `book-${dataBook.id}-ref`
+                                );
+                            } else {
+                                store.addNotification({
+                                    container: 'bottom-right',
+                                    animationIn: [
+                                        'animate__animated',
+                                        'animate__flipInX',
+                                    ],
+                                    animationOut: [
+                                        'animate__animated',
+                                        'animate__fadeOut',
+                                    ],
+                                    type: 'danger',
+                                    dismiss: {
+                                        duration: 5000,
+                                        pauseOnHover: true,
+                                    },
+                                    title: 'ناموفق',
+                                    message: (
+                                        <div>
+                                            <div>
+                                                خطایی برای سرور های ما رخ داده،
+                                                چندی بعد مراجعه فرمایید
+                                            </div>
+                                            <div>
+                                                در صورت رفع نشدن آن، ما را مطلع
+                                                سازید
+                                            </div>
+                                        </div>
+                                    ),
+                                });
+                            }
                         } catch (err) {
                             throw err;
                         }
