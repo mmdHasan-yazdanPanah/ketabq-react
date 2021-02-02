@@ -34,7 +34,7 @@ const items = [
         id: 2,
         mainSvg: SvgImageAnimation3,
         underSvgTextLevel1: 'جستجوی هوشمند',
-        underSvgTextLevel2: 'هر کتابی که می خواهید در سه سوت پیدا کنید',
+        underSvgTextLevel2: 'هر کتابی که می خواهید به سرعت پیدا کنید',
     },
     {
         id: 3,
