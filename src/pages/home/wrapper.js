@@ -20,6 +20,7 @@ import useSWR from 'swr';
 import BuyChangeDirection from './shop/buyCD';
 import NoMatch from './noMatch';
 import { colors } from '../../globalStates/statics';
+import LibraryPage from './library/library';
 
 const CatagoriesPage = lazy(() => import('./catagories/catagories'));
 const GeneralCatagoriesPage = lazy(() => import('./catagories/generalCat'));
@@ -37,7 +38,6 @@ const GuideAllItems = lazy(() => import('../menu-pages/guidePage'));
 const BuyPage = lazy(() => import('./shop/buy'));
 const BuyPackage = lazy(() => import('./shop/buy-package'));
 const HearPage = lazy(() => import('./shop/hearPage'));
-const LibraryPage = lazy(() => import('./library/library'));
 const AllComments = lazy(() => import('./shop/allComments'));
 // const SearchAfterType = lazy(() => import('./search/searchAfterType'));
 const Search = lazy(() => import('./search/search'));
