@@ -63,6 +63,8 @@ const Main = ({ style, animationRest }) => {
                 const res = await axios.get(url);
                 const data = res.data;
                 data['bookDiscounted'].sort((a, b) => b.discount - a.discount);
+                data['narrators'].reverse();
+                data['authors'].reverse();
                 console.log('DATA:', data);
                 setGeneralApiLoading(false);
                 return data;
