@@ -1,0 +1,76 @@
+.aside-nav {
+    width: 15.125rem;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-shadow: -3px 0 6px rgba($black, 0.16);
+    border-radius: 1rem 0 0 1rem;
+    padding: 0.875rem 1.25rem 2.5625rem 1rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+
+    &.scroll-custom {
+        /* width */
+        &::-webkit-scrollbar {
+            width: calc(4px + 1rem);
+        }
+
+        /* Track */
+        &::-webkit-scrollbar-track {
+            border-radius: 20px;
+            background-color: rgba($primary, 0.34);
+            border: 0.5rem solid transparent;
+            background-clip: padding-box;
+            transform: translateX(-1rem);
+        }
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background-color: $primary;
+            border-radius: 20px;
+            border: 0.5rem solid transparent;
+            background-clip: padding-box;
+            transform: translateX(-1rem);
+
+            &:hover {
+                background-color: darken($color: $primary, $amount: 25);
+            }
+        }
+
+        @include desktop {
+            &::-webkit-scrollbar {
+                width: calc(8px + 1rem);
+            }
+        }
+    }
+
+    @include desktop {
+        width: 18rem;
+    }
+
+    &_overlap {
+        // position: fixed;
+        position: absolute;
+        width: 100%;
+        // min-height: 100%;
+        min-height: 100vh;
+        top: 0;
+        right: 0;
+        z-index: 400;
+    }
+
+    .aside-nav {
+        &_theme {
+        }
+
+        // &_item {
+        //     transition: all ease 0.2s;
+
+        //     &:hover {
+        //         background-color: rgba($link-hover, 0.2);
+        //     }
+        // }
+    }
+}

@@ -1,0 +1,40 @@
+.allBuying {
+    &_credit {
+        max-width: 437px;
+        margin: 0 auto;
+    }
+
+    &_items {
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            flex-wrap: wrap;
+            margin-right: -1.5rem;
+            margin-left: -1.5rem;
+        }
+    }
+
+    &_item {
+        padding-top: 1.25rem;
+        padding-bottom: 1.25rem;
+
+        @include tablet {
+            flex-grow: 1;
+            padding-right: 1.5rem;
+            padding-left: 1.5rem;
+        }
+    }
+}
+
+.buyed-item {
+    &_image {
+        width: 84px;
+        height: 84px;
+
+        @include desktop {
+            width: 104px;
+            height: 104px;
+        }
+    }
+}

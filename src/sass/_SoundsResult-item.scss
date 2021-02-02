@@ -1,0 +1,213 @@
+.soundResult-item {
+    display: grid;
+    grid-template-columns: auto 1fr 1fr;
+    grid-template-rows: 8px;
+    direction: rtl;
+    transition: all ease 0.2s;
+
+    .soundResult-item {
+        &_icon-wrapper {
+            grid-row: 1 / -1;
+            grid-column: 1 / span 1;
+            margin-left: 26px;
+            align-self: start;
+            justify-self: start;
+            width: 1.875rem;
+
+            @include desktop {
+                width: 31px;
+            }
+
+            .soundResult-item {
+                &_icon {
+                    width: 100%;
+                    height: auto;
+                    transition: all ease 0.2s;
+                }
+                &_icon-play {
+                    width: 100%;
+                    height: auto;
+                    transition: all ease 0.2s;
+
+                    circle {
+                        transition: all ease 0.2s;
+                    }
+
+                    &--active {
+                    }
+                }
+                &_icon-pause {
+                    transition: all ease 0.2s;
+                    path {
+                        transition: all ease 0.2s;
+                        fill: $primary !important;
+                    }
+
+                    &--active {
+                        path {
+                            fill: $white !important;
+                        }
+                    }
+                }
+
+                &_icon-playIcon {
+                    transition: all ease 0.2s;
+                    path {
+                        transition: all ease 0.2s;
+                        fill: $white !important;
+                    }
+
+                    &--active {
+                        path {
+                            fill: $primary !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        &_name,
+        &_author,
+        &_narrator {
+            font-size: $size-8;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            width: 100%;
+
+            @include desktop {
+                font-size: $size-7;
+            }
+        }
+
+        &_name {
+            grid-row: 2 / span 1;
+            grid-column: 2 / span 1;
+        }
+
+        &_author {
+            grid-row: 3 / span 1;
+            grid-column: 2 / span 1;
+            margin-top: 2px;
+            margin-right: 3px;
+        }
+
+        &_narrator {
+            grid-row: 2 / span 1;
+            grid-column: 3 / span 1;
+            justify-self: end;
+        }
+
+        &_line {
+            grid-row: 4 / span 1;
+            grid-column: 2 / -1;
+            background-color: $primary;
+            border-radius: 1px;
+            height: 1px;
+            margin-top: 5px;
+            opacity: 0.6;
+            transition: all ease 0.2s;
+        }
+    }
+
+    &--light {
+        .soundResult-item {
+            &_name {
+                color: $black;
+            }
+
+            &_author {
+                color: $grey;
+            }
+
+            &_narrator {
+                color: $grey;
+            }
+        }
+    }
+
+    &--dark {
+        .soundResult-item {
+            &_name {
+                color: $white;
+            }
+
+            &_author {
+                color: $grey-light;
+            }
+
+            &_narrator {
+                color: $grey-light;
+            }
+        }
+    }
+
+    &:hover {
+        transform: translateY(-4px) scale(1.02);
+
+        .soundResult-item {
+            &_icon-wrapper {
+                .soundResult-item {
+                    &_icon {
+                        transform: translate(-20%, 28%);
+                    }
+                }
+            }
+
+            &_line {
+                background-color: $link-hover;
+            }
+        }
+    }
+}
+
+.soundResult-item--audio {
+    grid-template-rows: 1fr auto;
+
+    .soundResult-item {
+        &_icon-wrapper {
+            grid-row: 1 / 2;
+            margin-left: 15px;
+            line-height: 0;
+        }
+
+        &_name {
+            grid-row: 1 / span 1;
+            grid-column: 2 / span 1;
+            align-self: center;
+        }
+
+        &_narrator {
+            grid-row: 1 / span 1;
+            grid-column: 3 / span 1;
+            width: fit-content;
+            align-self: center;
+            justify-self: flex-end;
+        }
+
+        &_line {
+            grid-row: 2 / span 1;
+            grid-column: 2 / -1;
+            margin-top: 4px;
+            transition: all ease 0.2s;
+        }
+    }
+
+    &:hover {
+        transform: translateY(-4px) scale(1.02);
+
+        .soundResult-item {
+            &_icon-wrapper {
+                .soundResult-item {
+                    &_icon-play {
+                        transform: translate(-12%, 0);
+                    }
+                }
+            }
+
+            &_line {
+                transform: translateY(-1px);
+            }
+        }
+    }
+}

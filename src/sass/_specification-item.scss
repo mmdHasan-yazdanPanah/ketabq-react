@@ -1,0 +1,17 @@
+.specification-item {
+    &_value {
+        padding-bottom: 12px;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            height: 1px;
+            opacity: 0.6;
+            background-color: $primary;
+            border-radius: 1px;
+        }
+    }
+}

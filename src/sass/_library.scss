@@ -1,0 +1,78 @@
+.library {
+    &_header {
+        &-item {
+            position: relative;
+            transition: all 0.2s cubic-bezier(0, 0.55, 0.45, 1);
+            color: $grey;
+
+            &--dark {
+                color: $grey-light;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: calc(100% + 10px);
+                right: 0;
+                width: 100%;
+                transition: all 0.2s cubic-bezier(0, 0.55, 0.45, 1);
+                height: 1px;
+                border-radius: 1px;
+                background-color: transparent;
+            }
+
+            &--active {
+                color: unset;
+
+                &:hover {
+                    color: unset;
+                }
+
+                &::after {
+                    background-color: $primary;
+                }
+            }
+        }
+    }
+
+    &_main {
+        margin: 0 (1.5rem - 0.1rem);
+
+        @media screen and (min-width: 363px) {
+            margin: 0 (1.5rem - 0.2rem);
+        }
+        @media screen and (min-width: 366px) {
+            margin: 0 (1.5rem - 0.3rem);
+        }
+        @media screen and (min-width: 370px) {
+            margin: 0 (1.5rem - 0.4rem);
+        }
+        @media screen and (min-width: 380px) {
+            margin: 0 (1.5rem - 0.65rem);
+        }
+    }
+
+    &_image {
+        padding: 0.4rem 0.4rem;
+
+        @media screen and (min-width: 363px) {
+            padding: 0.5rem 0.3rem;
+        }
+        @media screen and (min-width: 370px) {
+            padding: 1rem 0.5rem;
+        }
+        @media screen and (min-width: 380px) {
+            padding: 1rem 0.65rem;
+        }
+
+        img {
+            width: 140px;
+            height: 140px;
+
+            @media screen and (min-width: 363px) {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    }
+}

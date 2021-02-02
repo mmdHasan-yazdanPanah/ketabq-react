@@ -1,0 +1,42 @@
+body {
+    background-color: $white-bis;
+}
+
+// Remove Arrow in input number
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* Firefox */
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+// Remove eye icon from input password
+input[type='password']::-ms-reveal,
+input[type='password']::-ms-clear {
+    display: none;
+}
+
+::placeholder {
+    font-size: $size-7;
+    font-weight: 300;
+}
+
+cite {
+    font-style: normal;
+}
+
+del {
+    text-decoration-color: $primary;
+}
+
+a {
+    display: inline-block;
+}
+
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}

@@ -1,0 +1,64 @@
+.buypage {
+    &_main {
+        @media screen and (orientation: landscape) {
+            margin-top: 0.5rem !important;
+
+            @include desktop {
+                margin-top: 2rem !important;
+                padding-right: 3rem !important;
+            }
+        }
+    }
+
+    &_image {
+        width: 80px;
+        height: 80px;
+
+        @include desktop {
+            width: 140px;
+            height: 140px;
+        }
+    }
+
+    &_input {
+        width: 121px;
+
+        @include desktop {
+            width: 130px;
+            font-size: 14px !important;
+
+            ::placeholder {
+                font-size: 14px !important;
+            }
+        }
+    }
+
+    &_button {
+        min-width: 121px;
+
+        @include desktop {
+            min-width: 130px;
+            font-size: 14px !important;
+        }
+    }
+
+    &_big-svg {
+        margin-top: 1.5rem !important;
+        margin-bottom: 0.5rem !important;
+
+        @media screen and (orientation: landscape) {
+            margin-top: 0.5rem !important;
+            margin-bottom: 0.5rem !important;
+        }
+    }
+
+    &_buy-left {
+        .name {
+            @include desktop {
+                padding-top: 0.5rem;
+                padding-right: 4px;
+                font-size: 1rem;
+            }
+        }
+    }
+}

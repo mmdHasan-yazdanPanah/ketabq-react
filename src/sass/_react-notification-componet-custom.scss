@@ -1,0 +1,29 @@
+@import '../../node_modules/react-notifications-component/dist/scss/notification.scss';
+
+.react-notification-root {
+    direction: rtl;
+}
+.notification-default {
+    border-left: 0;
+    border-right: 8px solid $default_dark;
+}
+.notification-success {
+    border-left: 0;
+    border-right: 8px solid $success_dark;
+}
+.notification-danger {
+    border-left: 0;
+    border-right: 8px solid $danger_dark;
+}
+.notification-info {
+    border-left: 0;
+    border-right: 8px solid $info_dark;
+}
+.notification-warning {
+    border-left: 0;
+    border-right: 8px solid $warning_dark;
+}
+.notification-awesome {
+    border-left: 0;
+    border-right: 8px solid $awesome_dark;
+}

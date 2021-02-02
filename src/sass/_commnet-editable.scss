@@ -1,0 +1,21 @@
+.commentEditable {
+    &_image {
+        img {
+            width: 84px;
+            height: 84px;
+
+            @include desktop {
+                width: 104px;
+                height: 104px;
+            }
+        }
+    }
+
+    &_ratebox {
+        margin-right: auto !important;
+
+        @include tablet {
+            margin-right: 207px !important;
+        }
+    }
+}

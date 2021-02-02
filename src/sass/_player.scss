@@ -1,0 +1,114 @@
+.player {
+    direction: ltr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+
+    &_line {
+        width: 100%;
+        position: relative;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        cursor: pointer;
+
+        &-bar {
+            width: 100%;
+            height: 2px;
+            background-color: rgba($grey-light, 0.42);
+            position: relative;
+            overflow: hidden;
+
+            &-loaded,
+            &-played {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 0%;
+                height: 100%;
+            }
+
+            &-loaded {
+                background-color: rgba(
+                    darken($color: $grey-light, $amount: 20),
+                    0.8
+                );
+            }
+
+            &-played {
+                background-color: $primary;
+            }
+        }
+
+        &-circle {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+
+            & > * {
+                width: 0.5rem;
+                height: 0.5rem;
+                background-color: $primary;
+                border-radius: 50%;
+                transition: transform ease 0.2s;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%) scale(0);
+                    width: calc(0.5rem + 0.2rem);
+                    height: calc(0.5rem + 0.2rem);
+                    border: 1.2px solid lighten($color: $primary, $amount: 10);
+                    background-color: transparent;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    transform-origin: center;
+                    transition: transform ease 0.2s;
+                }
+            }
+
+            &--active {
+                & > * {
+                    box-shadow: 0 0 8px 0px $primary;
+                    &:after {
+                        transform: translate(-50%, -50%) scale(1);
+                    }
+                }
+            }
+        }
+    }
+
+    &_time {
+        margin-top: 2px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        & > * {
+            user-select: text;
+        }
+    }
+
+    &_buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &_button {
+        cursor: pointer;
+        transition: all ease 0.2s;
+
+        &:hover {
+            fill: $link-hover;
+        }
+
+        &:active {
+            fill: $primary;
+        }
+    }
+}

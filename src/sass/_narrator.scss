@@ -1,0 +1,35 @@
+.narrator-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .narrator-item {
+        &_img {
+            object-fit: cover;
+            width: 4.375rem;
+            height: 4.375rem;
+            border-radius: 50%;
+            max-width: unset;
+        }
+
+        &_caption {
+            font-size: 0.55rem;
+            margin-top: 0.5rem;
+
+            @include desktop {
+                font-size: 10px;
+            }
+        }
+    }
+}
+
+.narrator-slider {
+    .swiper-wrapper {
+        padding-right: 1.0625rem;
+    }
+
+    .swiper-slide {
+        flex: 0 1;
+    }
+}

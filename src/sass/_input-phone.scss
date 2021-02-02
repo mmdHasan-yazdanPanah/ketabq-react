@@ -1,0 +1,87 @@
+.input-phone {
+    &_container {
+        ::placeholder {
+            text-align: right;
+            padding-right: 16px;
+        }
+    }
+
+    &_input {
+        border-color: $primary !important;
+        border-radius: 0.9375rem !important;
+        background-color: transparent !important;
+        transition: all ease 0.3s;
+        height: unset !important;
+        line-height: 2 !important;
+        font-size: 1rem !important;
+
+        @include tablet {
+            // font-size: 1.5rem !important;
+        }
+
+        &:focus {
+            box-shadow: 0 0 0 0.125rem rgba($primary, 0.25);
+        }
+
+        &--false {
+            border-color: $danger !important;
+            border-radius: 0.9375rem !important;
+            background-color: transparent !important;
+            transition: all ease 0.3s;
+            height: unset !important;
+            line-height: 2 !important;
+            font-size: 1rem !important;
+
+            &:focus {
+                box-shadow: 0 0 0 0.125rem rgba($danger, 0.25);
+            }
+        }
+
+        &--true {
+            border-color: $success !important;
+            border-radius: 0.9375rem !important;
+            background-color: transparent !important;
+            transition: all ease 0.3s;
+            height: unset !important;
+            line-height: 2 !important;
+            font-size: 1rem !important;
+
+            &:focus {
+                box-shadow: 0 0 0 0.125rem rgba($success, 0.25);
+            }
+        }
+    }
+
+    &_btn {
+        border-color: $primary !important;
+        border-radius: 0.6375rem !important;
+        // background-color: transparent !important;
+        // transition: all ease 0.3s;
+
+        .selected-flag {
+            border-radius: 0.6375rem !important;
+        }
+
+        &--false {
+            border-color: $danger !important;
+            border-radius: 0.6375rem !important;
+            // background-color: transparent !important;
+            // transition: all ease 0.3s;
+
+            .selected-flag {
+                border-radius: 0.6375rem !important;
+            }
+        }
+
+        &--true {
+            border-color: $success !important;
+            border-radius: 0.6375rem !important;
+            // background-color: transparent !important;
+            // transition: all ease 0.3s;
+
+            .selected-flag {
+                border-radius: 0.6375rem !important;
+            }
+        }
+    }
+}

@@ -1,0 +1,175 @@
+// Changing ("initial-variables") of Bulma:
+$yellow: #ffc107;
+$grey-darker: hsl(0, 0%, 19%); /* #313131 */
+$grey: #727070;
+$grey-light: hsl(0, 0%, 68%); /* #AEAEAE */
+$grey-lighter: #b7b7b7;
+$white-ter: #f9f9f9;
+$white-bis: #fcfcfc;
+$rtl: true;
+$black: #000000;
+$black-bis: hsl(0, 0%, 11%); /* #1c1c1c */
+$black-ter: hsl(0, 0%, 13%); /* #212121 */
+$family-sans-serif: BlinkMacSystemFont, 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Helvetica',
+    'Arial', -apple-system, 'Segoe UI', sans-serif;
+// $red: #ff074b;
+// $green: #18ff07;
+@import '../../node_modules/bulma/sass/utilities/initial-variables.sass';
+
+// Changing ("derived-variables") of Bulma:
+$primary: $yellow;
+$family-primary: Vazir, $family-sans-serif;
+$family-secondary: IRANSans;
+$text: $black;
+$link: $black;
+$link-hover: $blue;
+$background: $white-bis;
+
+//    Comes From: ../../node_modules/
+@import '../../node_modules/bulma/sass/utilities/functions.sass';
+@import '../../node_modules/bulma/sass/utilities/derived-variables.scss';
+@import '../../node_modules/bulma/sass/utilities/animations.sass';
+@import '../../node_modules/bulma/sass/utilities/mixins.sass';
+@import '../../node_modules/bulma/sass/utilities/controls.sass';
+
+@import '../../node_modules/bulma/sass/base/_all.sass';
+
+@import '../../node_modules/bulma/sass/grid/columns.sass';
+
+@import '../../node_modules/bulma/sass/helpers/_all.sass';
+
+@import '../../node_modules/bulma/sass/components/level.sass';
+@import '../../node_modules/bulma/sass/components/navbar.sass';
+$modal-z: 160;
+@import '../../node_modules/bulma/sass/components/modal.sass';
+
+$dimensions: 16 24 40 50 80 84 100 128;
+// 40,50,100,80,84,96 is used
+@import '../../node_modules/bulma/sass/elements/image.sass';
+@import '../../node_modules/bulma/sass/elements/container.sass';
+@import '../../node_modules/bulma/sass/elements/icon.sass';
+@import '../../node_modules/bulma/sass/elements/button.sass';
+
+@import '../../node_modules/bulma/sass/layout/hero.sass';
+
+$input-radius: 0.9375rem;
+$input-background-color: transparent;
+$input-placeholder-color: $grey;
+$input-color: $black;
+@import '../../node_modules/bulma/sass/form/shared.sass';
+@import '../../node_modules/bulma/sass/form/tools.sass';
+@import '../../node_modules/bulma/sass/form/input-textarea.sass';
+@import '../../node_modules/bulma/sass/form/file.sass';
+@import '../../node_modules/bulma/sass/form/checkbox-radio.sass';
+
+// add some Variables
+$size-8: 0.625rem;
+$size-9: 0.5rem;
+
+// add some Classes
+.is-size-8 {
+    font-size: $size-8 !important;
+}
+.is-size-9 {
+    font-size: $size-9 !important;
+}
+
+.input {
+    height: unset;
+}
+
+.button.is-primary {
+    border-color: $primary;
+    color: $white;
+}
+.button.is-primary.is-outlined {
+    color: $black;
+
+    &:hover,
+    &:focus {
+        color: $white;
+    }
+}
+.button {
+    border-radius: 1rem;
+    transition: all ease 0.2s;
+}
+
+.is-size {
+    &-7 {
+        &--responsive {
+            font-size: $size-7 !important;
+
+            &-tablet-up {
+                @include tablet {
+                    font-size: 0.875rem !important;
+                }
+            }
+
+            &-desktop-up {
+                @include desktop {
+                    font-size: 0.875rem !important;
+                }
+            }
+        }
+    }
+
+    &-8 {
+        &--responsive {
+            &-tablet-up {
+                @include tablet {
+                    font-size: 0.8rem !important;
+                }
+            }
+
+            &-desktop-up {
+                @include desktop {
+                    font-size: 0.8rem !important;
+                }
+            }
+        }
+    }
+}
+
+.withSvgNext {
+    svg {
+        transition: all ease 0.2s;
+    }
+
+    &:hover {
+        svg {
+            transform: translateX(-3px) scale(1.1);
+        }
+    }
+}
+
+.has-text-weight {
+    &-light {
+        &--desktop-down {
+            @include desktop {
+                font-weight: unset !important;
+            }
+        }
+    }
+}
+
+.mt-6 {
+    &--desktop {
+        @include desktop {
+            margin-top: 3rem;
+        }
+    }
+}
+
+.pt-6 {
+    &--desktop {
+        @include desktop {
+            padding-top: 3rem;
+        }
+    }
+}
+
+.file-label {
+    overflow: visible;
+}
