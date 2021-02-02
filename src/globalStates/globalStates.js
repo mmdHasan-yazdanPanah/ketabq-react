@@ -34,8 +34,4 @@ const { useGlobalState } = createGlobalState({
     commentSending: false,
 });
 
-export const { useGlobalState: colorsVar } = createGlobalState({
-    primary: '#ffc107',
-});
-
 export default useGlobalState;
