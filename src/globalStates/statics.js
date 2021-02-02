@@ -34,7 +34,8 @@ export const pageTitles = {
     creditPage: `کیف پول – ${shortTitle}`,
     addCreditPage: `افزایش اعتبار – ${shortTitle}`,
     invite: `دعوت از دوستان – ${shortTitle}`,
-    allPackages: `تمامی پکیج ها – ${shortTitle}`,
+    allPackages: `تمامی گنجینه ها – ${shortTitle}`,
+    packageItem: (title) => `${title} – ${shortTitle}`,
     noMatch: `404 – ${shortTitle}`,
 };
 

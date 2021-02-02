@@ -16,7 +16,7 @@ const PackageItem = () => {
     // eslint-disable-next-line no-unused-vars
     const [ready, setReady] = useState(true);
     const [items, setItems] = useState([]);
-    const [pack, setPack] = useState([]);
+    const [pack, setPack] = useState(false);
     const history = useHistory();
     const { id } = useParams();
 
@@ -52,15 +52,17 @@ const PackageItem = () => {
     }, [id, packages]);
 
     useEffect(() => {
-        document.title = pageTitles.allPackages;
-    }, []);
+        if (pack) {
+            document.title = pageTitles.packageItem(pack.title);
+        }
+    }, [pack]);
 
     return (
         <main className="main main--down pt-5">
             <TextWithBackIcon
                 className="mb-5"
                 backClickHandler={() => history.goBack()}>
-                {`کتاب های موجود در پکیج ${items.length ? pack.title : ''}`}
+                {`${items.length ? pack.title : ''}`}
             </TextWithBackIcon>
             {ready ? (
                 loading || items.length > 0 ? (
@@ -93,7 +95,7 @@ const PackageItem = () => {
                                     }
                                 />
                             </div>
-                            {packages
+                            {items
                                 .filter((value, index) => index > 0)
                                 .map((item, index) => (
                                     <div
