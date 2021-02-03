@@ -4,6 +4,10 @@
         transition: all ease 0.2s;
         border: 2px solid transparent;
 
+        @include tablet {
+            padding: 9px 12px;
+        }
+
         &--active {
             border: 2px solid rgba($primary, 0.2);
         }
@@ -22,17 +26,25 @@
                 ::placeholder {
                     color: $grey-light;
                     font-size: $size-7;
+
+                    @include tablet {
+                        font-size: $size-6;
+                    }
                 }
 
                 .my-input {
                     &_input {
-                        font-size: 1rem;
                         line-height: 18px;
                         height: 100%;
                         padding: 0 0.5rem;
                         font-size: $size-7;
                         border: none;
                         box-shadow: none;
+
+                        @include tablet {
+                            font-size: $size-6;
+                            padding: 0 0.75rem;
+                        }
                     }
 
                     &_icon {

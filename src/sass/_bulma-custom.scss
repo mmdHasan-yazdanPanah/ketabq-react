@@ -79,21 +79,22 @@ $size-9: 0.5rem;
     height: unset;
 }
 
-.button.is-primary {
-    border-color: $primary;
-    color: $white;
-}
-.button.is-primary.is-outlined {
-    color: $black;
+// .button.is-primary {
+//     border-color: $primary;
+//     color: $white;
+// }
+// .button.is-primary.is-outlined {
+//     color: $black;
 
-    &:hover,
-    &:focus {
-        color: $white;
-    }
-}
+//     &:hover,
+//     &:focus {
+//         color: $white;
+//     }
+// }
 .button {
     border-radius: 1rem;
     transition: all ease 0.2s;
+    justify-content: center;
 }
 
 .is-size {
@@ -103,13 +104,13 @@ $size-9: 0.5rem;
 
             &-tablet-up {
                 @include tablet {
-                    font-size: 0.875rem !important;
+                    font-size: $size-6 !important;
                 }
             }
 
             &-desktop-up {
                 @include desktop {
-                    font-size: 0.875rem !important;
+                    font-size: $size-6 !important;
                 }
             }
         }
@@ -119,13 +120,13 @@ $size-9: 0.5rem;
         &--responsive {
             &-tablet-up {
                 @include tablet {
-                    font-size: 0.8rem !important;
+                    font-size: 0.8125rem !important;
                 }
             }
 
             &-desktop-up {
                 @include desktop {
-                    font-size: 0.8rem !important;
+                    font-size: 0.8125rem !important;
                 }
             }
         }

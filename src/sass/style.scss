@@ -369,7 +369,7 @@
 
         @include tablet {
             max-width: 1000px;
-            padding-bottom: 6rem;
+            padding-bottom: calc(#{$padding-bootom} * 1.4);
         }
     }
 

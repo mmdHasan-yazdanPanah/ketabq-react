@@ -70,7 +70,7 @@
                     transition: all 0.3s cubic-bezier(0.85, 0, 0.15, 1);
 
                     @include desktop {
-                        font-size: 9px;
+                        font-size: 10px;
                     }
 
                     &::after {

@@ -42,7 +42,9 @@ const SearchAfterType = () => {
 
             <div className="columns mx-0 mb-0 mt-4 is-mobile is-multiline px-3">
                 <div className="column is-narrow pr-0 pl-1 py-1">
-                    <span className="is-size-8">مرتب سازی براساس</span>
+                    <span className="is-size-8 is-size-8--responsive-tablet-up">
+                        مرتب سازی براساس
+                    </span>
                 </div>
                 <div className="column px-0 py-0">
                     <div className="columns mx-0 my-0 is-mobile is-multiline">

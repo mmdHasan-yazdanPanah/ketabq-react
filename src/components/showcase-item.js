@@ -5,6 +5,7 @@ import DelayedLink from '../components/delayedLink';
 import RateboxStar from './ratebox-star';
 
 import useGlobalState from '../globalStates/globalStates';
+import { colors } from '../globalStates/statics';
 
 const ShowcaseItem = ({
     name,
@@ -30,7 +31,7 @@ const ShowcaseItem = ({
                         left: '50%',
                         transform: 'translate(-50%, -50%)',
                     }}>
-                    <SwishSpinner size={50} />
+                    <SwishSpinner size={50} frontColor={colors['dark']} />
                 </div>
             ) : null}
 

@@ -169,7 +169,7 @@ const ItemPageItem = ({
                                 size="md"
                                 weight="has-text-weight-semibold">
                                 شنیدن
-                                <HeadphoneIcon className="size-by-w--1 fill--white mr-1" />
+                                <HeadphoneIcon className="size-by-w--1 fill--primary-text-all mr-1" />
                             </Buttton>
                         </Link>
                         {/* <div className="level-item">

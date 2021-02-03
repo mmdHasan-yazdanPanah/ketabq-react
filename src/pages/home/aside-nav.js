@@ -95,7 +95,7 @@ const AsideNav = ({ type, name, number, image }) => {
                                                       {name}
                                                   </div>
                                                   <div
-                                                      className="is-size-8"
+                                                      className="is-size-8 is-size-8--responsive-desktop-up mt-1"
                                                       dir="ltr">
                                                       {number}
                                                   </div>

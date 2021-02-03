@@ -31,6 +31,22 @@
 .fill {
     &--primary {
         fill: $primary;
+
+        &-all {
+            path {
+                fill: $primary;
+            }
+        }
+
+        &-text {
+            fill: $primary-invert;
+
+            &-all {
+                path {
+                    fill: $primary-invert;
+                }
+            }
+        }
     }
 
     &--blue {

@@ -1,4 +1,5 @@
 import React from 'react';
+import useGlobalState from '../../globalStates/globalStates';
 
 const Button = ({
     children,
@@ -13,12 +14,16 @@ const Button = ({
     wide,
     ...rest
 }) => {
+    const [theme] = useGlobalState('theme');
+
     let sizeClassNames = `${!shrink ? 'px-6' : 'px-2'}`;
 
     if (size === 'small') {
         sizeClassNames = `${shrink ? 'px-2' : ''} ${wide ? 'px-4' : ''} ${
             !shrink && !wide ? 'px-3' : ''
-        } is-size-7 ${!fullHeight ? 'is-height-fit' : ''} py-1`;
+        } is-size-7 is-size-8--responsive-desktop-up ${
+            !fullHeight ? 'is-height-fit' : ''
+        } py-1`;
     }
 
     if (size === 'md') {
@@ -35,9 +40,8 @@ const Button = ({
                 className={`button ${
                     backgroudClass ? backgroudClass : 'is-primary'
                 } ${textColorClass ? textColorClass : ''} ${sizeClassNames} ${
-                    weight ? weight : 'has-text-weight-light'
-                } ${className ? className : ''}`}
-            >
+                    weight ? weight : ''
+                } ${className ? className : ''}`}>
                 {children}
             </span>
         );
@@ -50,9 +54,8 @@ const Button = ({
             className={`button ${
                 backgroudClass ? backgroudClass : 'is-primary'
             } ${textColorClass ? textColorClass : ''} ${sizeClassNames} ${
-                weight ? weight : 'has-text-weight-light'
-            } ${className ? className : ''}`}
-        >
+                weight ? weight : ''
+            } ${className ? className : ''}`}>
             {children}
         </button>
     );

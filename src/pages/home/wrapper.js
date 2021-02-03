@@ -360,53 +360,6 @@ const PrimaryPages = () => {
                                     />
                                 )}
                             </Route>
-
-                            {/* Menu Pages Start */}
-                            <Route path="/guide/item/:title">
-                                <animated.div
-                                    className="full-page absolute-for-animation"
-                                    style={props}>
-                                    <GuideItem />
-                                </animated.div>
-                            </Route>
-                            <Route path="/guide">
-                                <animated.div
-                                    className="full-page absolute-for-animation"
-                                    style={props}>
-                                    <GuideAllItems />
-                                </animated.div>
-                            </Route>
-
-                            {/* <Route path="/about-us">
-                                <animated.div
-                                    className="full-page absolute-for-animation"
-                                    style={props}>
-                                    <AboutUs />
-                                </animated.div>
-                            </Route> */}
-                            {/* <Route path="/support">
-                                <animated.div
-                                    className="full-page absolute-for-animation"
-                                    style={props}>
-                                    <Support />
-                                </animated.div>
-                            </Route> */}
-                            <Route path="/my-comments">
-                                {token ? (
-                                    <animated.div
-                                        className="full-page absolute-for-animation"
-                                        style={props}>
-                                        <MyComments />
-                                    </animated.div>
-                                ) : (
-                                    <Redirect
-                                        to={{
-                                            pathname: '/login_signup',
-                                            state: { toLocation: '/library' },
-                                        }}
-                                    />
-                                )}
-                            </Route>
                             <Route path="/product/buy-package/:id">
                                 {token ? (
                                     <animated.div
@@ -439,6 +392,53 @@ const PrimaryPages = () => {
                                             state: {
                                                 toLocation: location.pathname,
                                             },
+                                        }}
+                                    />
+                                )}
+                            </Route>
+                            {/* Menu Pages Start */}
+                            <Route path="/guide" exact>
+                                <animated.div
+                                    className="full-page absolute-for-animation"
+                                    style={props}>
+                                    <GuideAllItems />
+                                </animated.div>
+                            </Route>
+
+                            <Route path="/guide/item/:title">
+                                <animated.div
+                                    className="full-page absolute-for-animation"
+                                    style={props}>
+                                    <GuideItem />
+                                </animated.div>
+                            </Route>
+
+                            {/* <Route path="/about-us">
+                                <animated.div
+                                    className="full-page absolute-for-animation"
+                                    style={props}>
+                                    <AboutUs />
+                                </animated.div>
+                            </Route> */}
+                            {/* <Route path="/support">
+                                <animated.div
+                                    className="full-page absolute-for-animation"
+                                    style={props}>
+                                    <Support />
+                                </animated.div>
+                            </Route> */}
+                            <Route path="/my-comments">
+                                {token ? (
+                                    <animated.div
+                                        className="full-page absolute-for-animation"
+                                        style={props}>
+                                        <MyComments />
+                                    </animated.div>
+                                ) : (
+                                    <Redirect
+                                        to={{
+                                            pathname: '/login_signup',
+                                            state: { toLocation: '/library' },
                                         }}
                                     />
                                 )}
