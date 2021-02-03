@@ -32,6 +32,7 @@ const { useGlobalState } = createGlobalState({
     token: token,
     hash: hash,
     commentSending: false,
+    firstLoad: true,
 });
 
 export default useGlobalState;

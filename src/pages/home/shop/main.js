@@ -10,6 +10,8 @@ import SectionHeader from '../../../components/section-header';
 import ShowcaseItem from '../../../components/showcase-item';
 import NarratorItem from '../../../components/narrator-item';
 import { pageTitles, rotesPath } from '../../../globalStates/statics';
+import { store } from 'react-notifications-component';
+import useGlobalState from '../../../globalStates/globalStates';
 
 const showcaseCount = 12;
 const narrator_other_count = 20;
@@ -110,6 +112,39 @@ const Main = ({ style, animationRest }) => {
 
     useEffect(() => {
         document.title = pageTitles.main;
+    }, []);
+
+    const [firstLoad, setFirstLoad] = useGlobalState('firstLoad');
+    useEffect(() => {
+        const time = 1000 * 12;
+        const title = 'ما رو با گوشی دنبال کنید';
+        const message = 'برای یه تجربه بهتر، یه سر با گوشی به سایت ما بزن!';
+        const showTimes = 4;
+
+        if (firstLoad && !window.mobileCheck()) {
+            setTimeout(() => {
+                const checkTimes = +localStorage.getItem('check-times');
+                if (checkTimes < showTimes) {
+                    store.addNotification({
+                        container: 'bottom-right',
+                        animationIn: ['animate__animated', 'animate__flipInX'],
+                        animationOut: ['animate__animated', 'animate__fadeOut'],
+                        type: 'info',
+                        dismiss: {
+                            duration: 10000,
+                            pauseOnHover: true,
+                        },
+                        title: title,
+                        message: message,
+                    });
+
+                    localStorage.setItem('check-times', checkTimes + 1);
+                }
+            }, time);
+        }
+
+        setFirstLoad(false);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
