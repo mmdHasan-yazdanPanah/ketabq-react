@@ -106,8 +106,8 @@ const LibraryPage = () => {
             setLoading(true);
         } else {
             setLoading(false);
-            setBooks(data.books);
-            setFavorites(data.bookmarks);
+            setBooks(data.books.reverse());
+            setFavorites(data.bookmarks.reverse());
         }
     }, [data]);
 
