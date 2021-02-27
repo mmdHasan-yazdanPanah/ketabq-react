@@ -5,6 +5,7 @@ import { animated } from 'react-spring';
 import { ReactComponent as Logo } from '../../images/icons/logo.svg';
 import Burger from '../../components/svg-icons/burger';
 import AsideNav from './aside-nav';
+import { Link } from 'react-router-dom';
 
 const Nav = ({ style, ...props }) => {
     const [menuIsOpen, setMenuIsOpen] = useGlobalState('menuIsOpen');
@@ -21,8 +22,7 @@ const Nav = ({ style, ...props }) => {
                 theme === 'light'
                     ? 'has-background-white menu--light'
                     : 'has-background-black-bis menu--dark'
-            } menu transition-common`}
-        >
+            } menu transition-common`}>
             <div className="menu_burger">
                 <Burger
                     width="64px"
@@ -32,9 +32,9 @@ const Nav = ({ style, ...props }) => {
                     closed={menuIsOpen}
                 />
             </div>
-            <a href="/" className="menu_logo">
+            <Link to="/" className="menu_logo">
                 <Logo />
-            </a>
+            </Link>
 
             <AsideNav {...props} />
         </animated.nav>
