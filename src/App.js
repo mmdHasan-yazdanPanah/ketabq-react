@@ -65,8 +65,11 @@ function App() {
                     <Route path="/login_signup/:ref?">
                         {!token ? <LoginOrSignup /> : <Redirect to="/" />}
                     </Route>
-                    <Route path="/">
+                    <Route path="/" exact>
                         {started ? <PrimaryPages /> : <Redirect to="/start" />}
+                    </Route>
+                    <Route path="/">
+                        <PrimaryPages />
                     </Route>
                 </Switch>
             </Suspense>
