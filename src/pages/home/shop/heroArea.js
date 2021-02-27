@@ -77,6 +77,7 @@ const HeroArea = ({ className, readyToSet }) => {
             </div>
             <Swiper
                 ref={swiperRef}
+                autoplay={true}
                 slidesPerView={1.3}
                 centeredSlides={true}
                 initialSlide={1}

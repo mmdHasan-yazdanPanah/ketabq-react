@@ -10,6 +10,7 @@ import ReactNotification from 'react-notifications-component';
 import axios from 'axios';
 import NProgress from 'nprogress';
 import PrimaryPages from './pages/home/wrapper';
+import SwiperCore, { Lazy, Navigation, Autoplay } from 'swiper';
 
 import './sass/style.scss';
 
@@ -44,6 +45,8 @@ const LazyLoad = () => {
 
     return '';
 };
+
+SwiperCore.use([Lazy, Navigation, Autoplay]);
 
 function App() {
     // axios.defaults.baseURL = 'https://apiketabq.pouyadadeh.com/api';
