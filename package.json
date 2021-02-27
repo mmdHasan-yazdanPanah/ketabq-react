@@ -3,7 +3,6 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
-        "@bit/mmdhasanyp.rate_box_start.ratebox": "^1.0.1",
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.5.0",
         "@testing-library/user-event": "^7.2.1",
@@ -54,12 +53,5 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
-    },
-    "bit": {
-        "env": {
-            "compiler": "bit.envs/compilers/react@1.0.21"
-        },
-        "componentsDefaultDirectory": "components/{name}",
-        "packageManager": "npm"
     }
 }
