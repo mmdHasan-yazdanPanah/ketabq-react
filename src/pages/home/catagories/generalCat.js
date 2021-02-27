@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import useSWR from 'swr';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 import CatItem from '../../../components/catagory-item';
 
@@ -18,6 +18,8 @@ const CatagoiesPage = ({ animationRest }) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [animationRest]);
 
+    const history = useHistory();
+
     const { propery } = useParams();
 
     const generalApiUrl = '/general';
@@ -30,6 +32,12 @@ const CatagoiesPage = ({ animationRest }) => {
                 data['bookDiscounted'].sort(
                     (a, b) => b.discount_percent - a.discount_percent
                 );
+                data['narrators'].reverse();
+                data['narrators'] = data['narrators'].filter(
+                    (item) => item.avatar
+                );
+                data['authors'].reverse();
+                data['authors'] = data['authors'].filter((item) => item.avatar);
                 console.log('DATA:', data);
                 return data;
             } catch (err) {
@@ -70,7 +78,7 @@ const CatagoiesPage = ({ animationRest }) => {
                 document.title = pageTitles.publishersPage;
                 break;
             default:
-                setSearch('#');
+                history.push('/404');
         }
     }, [generalData, propery]);
 
