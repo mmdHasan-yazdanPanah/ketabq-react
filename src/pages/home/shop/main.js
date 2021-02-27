@@ -68,7 +68,11 @@ const Main = ({ style, animationRest }) => {
                     (a, b) => b.discount_percent - a.discount_percent
                 );
                 data['narrators'].reverse();
+                data['narrators'] = data['narrators'].filter(
+                    (item) => item.avatar
+                );
                 data['authors'].reverse();
+                data['authors'] = data['authors'].filter((item) => item.avatar);
                 console.log('DATA:', data);
                 setGeneralApiLoading(false);
                 return data;
